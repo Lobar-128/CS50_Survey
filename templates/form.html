@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">Form</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <!--<form action="/form" method="post">-->
+    <form class="needs-validation" action="/sheet" method="post" novalidate>
+        <div class="form-group">
+            <label for="inputName">Name:</label>
+            <input class="form-control" type="text" id="inputName" name="name" placeholder="Name and Surname" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Please enter your name.
+            </div>
+        </div>
+        <!--<select name="house">-->
+        <div class="form-group">
+            <label for="inputHouse">House:</label>
+            <select class="form-control" id="inputHouse" name="house" required>
+                <option value="">Choose</option>
+                <option value="Gryffindor">Gryffindor</option>
+                <option value="Hufflepuff">Hufflepuff</option>
+                <option value="Ravenclaw">Ravenclaw</option>
+                <option value="Slytherin">Slytherin</option>
+            </select>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Please select your house.
+            </div>
+        </div>
+        <label for="inputPosition">Position:</label> <br>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="position" id="inputPosition" name="position" value="Chaser" required> Chaser <br>
+            <input class="form-check-input" type="radio" name="position" id="inputPosition" name="position" value="Keeper" required> Keeper <br>
+            <input class="form-check-input" type="radio" name="position" id="inputPosition" name="position" value="Seeker" required> Seeker <br>
+            <input class="form-check-input" type="radio" name="position" id="inputPosition" name="position" value="Beater" required> Beater <br>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Please select your position.
+            </div>
+        </div>
+        </br>
+        <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+        <button class="btn btn-primary" type="submit">Submit</button>
+
+    </form>
+
+    <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {'use strict'; window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })
+    ();
+    </script>
+
+{% endblock %}
